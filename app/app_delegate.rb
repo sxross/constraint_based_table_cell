@@ -33,8 +33,7 @@ end
 
 class CustomCell < UITableViewCell
   attr_accessor :title_label, :details_label, :attendees_label
-
-  include Teacup::Layout
+  # include Teacup::Layout
   stylesheet :main
 
   def initWithStyle(style, reuseIdentifier:cell_identifier)
@@ -46,7 +45,7 @@ class CustomCell < UITableViewCell
   def create_cell_subviews
     self.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
 
-    layout(self.contentView, :main) do
+    layout(self.contentView, :root) do
       subview UIView, :padding do
         self.title_label = subview UILabel, :cell_title_label
         self.details_label = subview UILabel, :cell_details_label
@@ -59,6 +58,9 @@ class CustomCell < UITableViewCell
 end
 
 Teacup::Stylesheet.new :main do
+  style :root,
+    backgroundColor: UIColor.colorWithRed(247.0 / 256.0, green:221.0 / 256.0, blue:186.0 / 256.0, alpha:1)
+  
   style :padding,
    backgroundColor: UIColor.greenColor,
    constraints: [

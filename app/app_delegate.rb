@@ -51,6 +51,7 @@ class CustomCell < UITableViewCell
         self.details_label = subview UILabel, :cell_details_label
         self.attendees_label = subview UILabel, :cell_attendees_label
       end
+      self.contentView.apply_constraints
     end
 
     self
